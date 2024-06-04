@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrhGK</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header2" id="myHeader">
+            <h2>Spouse Visa Family Images</h2>
+        </div>
+        <div class="upload-section" id="upload-section-before">
+            <div class="header">Create PDF file from photos</div>
+            <div class="attachment">Add your photos</div>
+            <div class="upload-box" id="drop-area">
+                <p>Drag & Drop your pictures or <span class="browse">Browse</span></p>
+                <input type="file" id="file-input" multiple style="display: none;">
+            </div>
+        </div>
+
+        <div class="upload-section" id="upload-section-after" style="display: none;">
+            <div class="header">Create PDF file from photos</div>
+            <div class="file-list-container">
+                <div class="file-list" id="file-list">
+                    <!-- File items will be appended here dynamically -->
+                </div>
+            </div>
+            <div class="upload-box" id="drop-area-2">
+                <p>Add More <span class="browse">Pictures</span></p>
+                <input type="file" id="file-input-2" multiple style="display: none;">
+            </div>
+            <input type="text" id="user-text" placeholder="Enter your spouse title">
+            <div class="button-container">
+                <button class="generate-button" id="generate-pdf">Generate PDF File</button>
+                <a id="download-link" style="display: none; width: 95%;" download="photos.pdf">Download PDF</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Congratulations</h2>
+          </div>
+          <div class="modal-body">
+            <p>Your PDF file is ready.. Click to download blah blah blah blah blah blah blah blah</p>
+          </div>
+        </div>
+      
+      </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+    window.onscroll = function() {myFunction()};
+    
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+
+        // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("generate-pdf");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+</script>
